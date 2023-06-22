@@ -1,34 +1,47 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 
 import './index.css';
-const BookList =() => {
-    return(
-        <section className="booklist">
-        <Book/>
-        <Book/>
-        <Book/>
+const books = [
 
-    </section>
-    )
-    
+    {
+        title :'Iron Flame ',
+        author: 'Rebecca Yarros',
+        img : './images/1_.jpg',
+         id: 1,
+       },
+       {
+           title :'Atomic Habits',
+           author :'James Clear ',
+           img : './images/2.jpg',
+           id : 2
+        }
+]
+
+
+
+function BookList() {
+  return <section className='booklist'>
+    {books.map((book)=>{
+        const {img, title, author, id} =book
+         return <Book img= {img} title= {title} author={author} key={id}/>   
+    })}
+  </section>;
 }
-const Book =()=>
-{
-    return (
-        <article className=" book">
-            <Image/>
-            <Title/>
-            <Author/>
 
+const Book = (props)=>
+{  const {img, title,author, children} = props;
+    return ( 
+        <article className=" book">
+            <img src={img} alt={title}/>
+            <h2>{title}</h2>
+            <h4 > {author} </h4>
+            {children}
+          
         </article>
     )
 };
-const Image =() => <img src=".\images\1_.jpg" alt="Iron Flame (The Empyrean, 2)"/>
 
-const Title =() => <h2>Iron Flame </h2>
-
-const Author =() => {return <h4> Rebecca Yarros </h4>}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<BookList/>)
