@@ -21,14 +21,18 @@ const books = [
 
 
 function BookList() {
-  const someValue = 'shakeAndBake';
-  const displayValue = () => {
-    console.log(someValue);
-  };
+  // const someValue = 'shakeAndBake';
+  // const displayValue = () => {
+  //   console.log(someValue);
+  // };
+const getBook=(id)=>{
+  const book=books.find((book)=>book.id===id);
+  console.log(book)
+}
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book {...book} key={book.id} displayValue={displayValue} />;
+        return <Book {...book} key={book.id} />;
       })}
     </section>
   );
@@ -67,7 +71,7 @@ function BookList() {
 // };
   
 const Book = (props) => {
-  const { img, title, author, displayValue } = props;
+  const { img, title, author,getBook,id} = props;
     // const displaytitle=()=>{
     //   console.log(title);
    
@@ -75,7 +79,7 @@ const Book = (props) => {
       <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayValue}>click me</button>
+      <button onClick={getBook(id)}>click me</button>
       <h4>{author} </h4>
     </article>
     );
