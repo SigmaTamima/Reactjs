@@ -32,7 +32,7 @@ const getBook=(id)=>{
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book {...book} key={book.id} />;
+        return <Book {...book} key={book.id} getBook={getBook} />;
       })}
     </section>
   );
@@ -74,12 +74,16 @@ const Book = (props) => {
   const { img, title, author,getBook,id} = props;
     // const displaytitle=()=>{
     //   console.log(title);
+
+    const getSinglBook= () =>{
+      getBook(id)
+    }
    
     return (
       <article className='book'>
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={getBook(id)}>click me</button>
+      <button onClick={getSinglBook}>click me</button>
       <h4>{author} </h4>
     </article>
     );
