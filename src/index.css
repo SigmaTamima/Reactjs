@@ -11,12 +11,7 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  .book {
-    background: #8288a3;
-    border-radius: 1rem;
-    padding: 2rem;
-    text-align: center;
-  }
+
   .book img {
     width: 100%;
     object-fit: cover;
@@ -36,4 +31,28 @@
       Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: #b6b6b6;
     color: #222;
+  }
+  .book {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    /* set relative */
+    position: relative;
+  }
+  
+  .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    padding: 0.75rem;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background: #c35600;
+    color: #fff;
+  }
+  h1{
+    text-align: center;
+    margin-top:4rem ;
   }
